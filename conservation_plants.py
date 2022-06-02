@@ -20,7 +20,7 @@ Before running the code install NCBI BLAST+ (https://ftp.ncbi.nlm.nih.gov/blast/
 paste the contents of database folder in the bin folder
 Check the blastn path and database path on line 43 and line 102 respectively
 Install t_coffee_Alignment tool (https://www.tcoffee.org/Packages/Stable/Latest/) and add to your system path file (.bashrc for ubuntu)
-If you need clustal alignment add clastalw path in line 41
+If you need clustal alignment add clastalw path in line 42 and uncomment the clustalW part
 """
 #folder paths
 path=r"nuc_alignments\\"
