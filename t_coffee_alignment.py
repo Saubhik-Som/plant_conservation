@@ -27,7 +27,6 @@ def t_coffee_alignment(directory,output_file_name,space_rename=1):
     An excel file in the input directory with t_coffee alignment scores.
 
     """
-    # readthrough_df=pd.read_excel('/media/smelab/7A48AB9348AB4CA7/Plant_revision/Table S2 List of RT-positive genes.xlsx', skiprows=2)
     
     os.chdir(directory)
     
@@ -117,4 +116,3 @@ def t_coffee_alignment(directory,output_file_name,space_rename=1):
     
     return failed
     
-x=t_coffee_alignment(r"/media/smelab/Saubhik/Error_t_coffee_genes/betaca2/", 'beta_CA2_prot',1)
