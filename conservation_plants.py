@@ -5,7 +5,7 @@ Created on Wed Mar 30 19:50:18 2022
 @author: Saubhik
 """
 
-import os,glob,re, time, pickle
+import os,glob,re, pickle
 import numpy as np
 import pandas as pd
 from Bio import SeqIO, Entrez
@@ -14,11 +14,13 @@ from Bio.Align.Applications import ClustalwCommandline
 from Bio.Blast.Applications import NcbiblastnCommandline
 from Bio.Blast import NCBIXML
 Entrez.email = 'saubhiksom@iisc.ac.in'
-start=time.time()
 #folder paths
-path=r"E:\Plant_revision\allignments_plants\\nuc_alignments\\"
-protein_path=r"E:\Plant_revision\allignments_plants\\prot_alignments\\"
-
+path=r"nuc_alignments\\"
+protein_path=r"prot_alignments\\"
+if os.isdir(path) == False:
+    os.makedirs(path)
+if os.isdir(protein_path) == False:
+    os.makedirs(protein_path)
 #clearing fasta files from folder paths
 files=glob.glob(path+"*.fasta")
 for file in files:
@@ -29,8 +31,8 @@ for file in files:
     os.remove(file)
 
 #commandline paths    
-clustalw_exe=r"C:\Program Files (x86)\ClustalW2\clustalw2.exe"
-blastn=r"C:\NCBI\blast-BLAST_VERSION+\bin\blastn.exe"
+clustalw_exe=r"Add clustalw2 path"
+blastn=r"NCBI/blast-BLAST_VERSION+/bin/blastn"
 failed={}
 
 #re patterns used
@@ -89,7 +91,7 @@ for keys in genes:
             with open(fname,'w') as f:
                 f.write('>'+header+'\n'+sequence+'\n')
             for sp in database:
-                blastn_cline = NcbiblastnCommandline(blastn,query=fname,db=r'C:/NCBI/blast-BLAST_VERSION+/bin/%s'%sp, outfmt=5,evalue=0.0001, out=path+"test.XML", max_target_seqs=1)
+                blastn_cline = NcbiblastnCommandline(blastn,query=fname,db=r'NCBI/blast-BLAST_VERSION+/bin/%s'%sp, outfmt=5,evalue=0.0001, out=path+"test.XML", max_target_seqs=1)
                 try:
                     blastn_cline()
                 except Exception as e1:
@@ -157,8 +159,10 @@ for gene in Homologues:
             if prot_seq_now != 'X' and prot_seq_now != '' : # and protein_seq_now.count('X')!=len(protein_seq_now)
                 with open(protein_path+gene+"_prot_"+element+'.fasta', 'a') as f:
                     f.write('>'+element+'_'+homolo_sp+'\n'+prot_seq_now+'\n')
-                                
-#clustalw nucleotide allignment                
+
+                    
+#clustalw nucleotide allignment (optional)
+"""
 files=glob.glob(path+"*.fasta")
 
 for file in files:
@@ -198,5 +202,4 @@ for file in files:
     except Exception:
         continue
 
-end=time.time()
-print("This code took",(end-start)/3600, "hours")         
+""" 
