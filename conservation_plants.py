@@ -18,6 +18,7 @@ Entrez.email = 'saubhiksom@iisc.ac.in'
 This program can only run on linux system
 Before running the code install NCBI BLAST+ (https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) and 
 paste the contents of database folder in the bin folder
+Check the blastn path and database path on line 43 and line 102 respectively
 Install t_coffee_Alignment tool (https://www.tcoffee.org/Packages/Stable/Latest/) and add to your system path file (.bashrc for ubuntu)
 If you need clustal alignment add clastalw path in line 41
 """
