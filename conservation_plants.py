@@ -14,6 +14,13 @@ from Bio.Align.Applications import ClustalwCommandline
 from Bio.Blast.Applications import NcbiblastnCommandline
 from Bio.Blast import NCBIXML
 Entrez.email = 'saubhiksom@iisc.ac.in'
+"""
+This program can only run on linux system
+Before running the code install NCBI BLAST+ (https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) and 
+paste the contents of database folder in the bin folder
+Install t_coffee_Alignment tool (https://www.tcoffee.org/Packages/Stable/Latest/) and add to your system path file (.bashrc for ubuntu)
+If you need clustal alignment add clastalw path in line 41
+"""
 #folder paths
 path=r"nuc_alignments\\"
 protein_path=r"prot_alignments\\"
@@ -31,7 +38,7 @@ for file in files:
     os.remove(file)
 
 #commandline paths    
-clustalw_exe=r"Add clustalw2 path"
+#clustalw_exe=r"Add clustalw2 path"
 blastn=r"NCBI/blast-BLAST_VERSION+/bin/blastn"
 failed={}
 
