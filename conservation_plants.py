@@ -204,7 +204,8 @@ for file in files:
 
 """ 
 import t_coffee_alignment
-nucleotide_t_coffee= t_coffee_alignment
+nucleotide_t_coffee= t_coffee_alignment(protein_path,"nuc_t_coffee_scores")
+nucleotide_t_coffee= t_coffee_alignment(protein_path,"nuc_t_coffee_scores")
 
 
 
