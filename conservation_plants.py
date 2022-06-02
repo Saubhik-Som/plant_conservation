@@ -203,3 +203,11 @@ for file in files:
         continue
 
 """ 
+import t_coffee_alignment
+nucleotide_t_coffee= t_coffee_alignment
+
+
+
+
+
+
