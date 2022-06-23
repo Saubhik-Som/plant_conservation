@@ -25,9 +25,9 @@ If you need clustal alignment add clastalw path in line 42 and uncomment the clu
 #folder paths
 path=r"nuc_alignments\\"
 protein_path=r"prot_alignments\\"
-if os.isdir(path) == False:
+if os.path.isdir(path) == False:
     os.makedirs(path)
-if os.isdir(protein_path) == False:
+if os.path.isdir(protein_path) == False:
     os.makedirs(protein_path)
 #clearing fasta files from folder paths
 files=glob.glob(path+"*.fasta")
