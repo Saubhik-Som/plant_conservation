@@ -121,6 +121,8 @@ for keys in genes:
                                 # homolo_seq=mapping[sp][homolo_gene]
                 
                 os.remove(path+"test.XML")
+                if homolo_gene==None:
+                    continue
                 with Entrez.efetch(db="nucleotide", rettype="gb", retmode="text", id=entrez_id) as handle:
                     seq_record = SeqIO.read(handle, "gb") # using "gb" as an alias for "genbank"
                
